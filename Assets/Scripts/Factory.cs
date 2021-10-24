@@ -5,12 +5,9 @@ using UnityEngine;
 public class Factory : MonoBehaviour
 {
     public GameObject Prefab;
-
-    //public GameObject Prefab2;
     public string TargetTag;
-
-    public int MakeLimit = 6; //Maximum Agents Before Destruction
-    private int _makecount = 0; //Each Time We Make An Agent, Add To Count
+    public int MakeLimit = 6; //maximum agents before destruction
+    private int _makeCount = 0; //each time we make an agent, add to count
     private GameObject Target;
 
     public float MakeRate = 2.0f;
@@ -28,14 +25,13 @@ public class Factory : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        //Guard Statement
+        //guard statement
         if (Target == null) { return; }
 
-        //Destroy Factory When Limit Reached
-        if (_makecount >= MakeLimit)
+        //destroy factory when limit reached
+        if (_makeCount >= MakeLimit)
         {
-            CancelInvoke();
-            //Destroy(gameObject);
+            Destroy(gameObject);
         }
 
         _lastMake += Time.deltaTime; //_lastMake = _lastMake + Time.deltaTime;
@@ -43,7 +39,7 @@ public class Factory : MonoBehaviour
         {
             //Debug.Log("Make");
             _lastMake = 0; //reset time counter
-            _makecount++; //Increase Agent Make Count By One
+            _makeCount++; //increase agent make count by one
             GameObject go = Instantiate(Prefab, this.transform.position, Quaternion.identity);
             MobileUnit mu = go.GetComponent<MobileUnit>();
             mu.Target = Target;
