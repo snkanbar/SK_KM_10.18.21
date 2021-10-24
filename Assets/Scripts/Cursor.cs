@@ -47,6 +47,12 @@ public class Cursor : MonoBehaviour
             if (Physics.Raycast(ray.origin, ray.direction, out hit, Mathf.Infinity, SelectMask))
             {
                 Debug.Log("Factory");
+                GameObject.Find("Factory").SendMessage("changecolorred");
+
+                //Factory color = _selectedFactory.GetComponent<Renderer>().material.SetColor("_Color",cursorOver)
+                //var factoryrenderer = colorchangefactory.GetComponent<Renderer>();
+                //factoryrenderer.material.SetColor("",Color.red);
+
                 if (Input.GetButtonDown("South"))
                 {
                     _selectedFactory = hit.transform.gameObject;
@@ -55,27 +61,33 @@ public class Cursor : MonoBehaviour
                     _isRelocating = true;
                 }
             }
+            else
+            {
+                Debug.Log("FactoryOUT");
+                GameObject go = GameObject.Find("Factory");
+                if (go != null) { go.SendMessage("changecolorblue"); }
+            }
+
+            //get input
+            Vector2 joy = new Vector2(Input.GetAxis("RightJoyX"), -Input.GetAxis("RightJoyY"));
+            if (joy.magnitude < 0.3f) { return; }
+            joy.Normalize();
+
+            //local variables
+            float width = Screen.width;
+            float height = Screen.height;
+            float multiplier = Speed * Time.deltaTime;
+            Vector2 anchor = rect.anchoredPosition;
+
+            //update values
+            float x = anchor.x + joy.x * multiplier;
+            x = Mathf.Clamp(x, -width / 2, width / 2);
+            float y = anchor.y + joy.y * multiplier;
+            y = Mathf.Clamp(y, -height / 2, height / 2);
+
+            //set anchor
+            anchor = new Vector2(x, y);
+            rect.anchoredPosition = anchor;
         }
-
-        //get input
-        Vector2 joy = new Vector2(Input.GetAxis("RightJoyX"), -Input.GetAxis("RightJoyY"));
-        if (joy.magnitude < 0.3f) { return; }
-        joy.Normalize();
-
-        //local variables
-        float width = Screen.width;
-        float height = Screen.height;
-        float multiplier = Speed * Time.deltaTime;
-        Vector2 anchor = rect.anchoredPosition;
-
-        //update values
-        float x = anchor.x + joy.x * multiplier;
-        x = Mathf.Clamp(x, -width / 2, width / 2);
-        float y = anchor.y + joy.y * multiplier;
-        y = Mathf.Clamp(y, -height / 2, height / 2);
-
-        //set anchor
-        anchor = new Vector2(x, y);
-        rect.anchoredPosition = anchor;
     }
 }
