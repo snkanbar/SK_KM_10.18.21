@@ -47,7 +47,7 @@ public class Cursor : MonoBehaviour
             if (Physics.Raycast(ray.origin, ray.direction, out hit, Mathf.Infinity, SelectMask))
             {
                 Debug.Log("Factory");
-                GameObject.Find("Bowl").SendMessage("changecolorred");
+                GameObject.Find("Bowl").SendMessage("changecoloryellow");
 
                 //Factory color = _selectedFactory.GetComponent<Renderer>().material.SetColor("_Color",cursorOver)
                 //var factoryrenderer = colorchangefactory.GetComponent<Renderer>();
