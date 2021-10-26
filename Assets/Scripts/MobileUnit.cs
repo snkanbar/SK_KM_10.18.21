@@ -20,10 +20,31 @@ public class MobileUnit : MonoBehaviour
     {
         Agent = this.GetComponent<NavMeshAgent>();
         Agent.SetDestination(Target.transform.position);
+        Positions = Shuffle(Positions);
         foreach (GameObject pos in Positions)
         {
+            float x = Random.Range(65, 75);
+            float y = Random.Range(35, 45);
+            float z = Random.Range(40, 50);
+            pos.transform.position = new Vector3(x, y, z); //need to define these vqlues
             Configure.Add(pos, null);
         }
+
+        //GameObject mesh = Positions[Random.Range(0, Positions.Length)];
+    }
+
+    private GameObject[] Shuffle(GameObject[] objects)
+    {
+        GameObject tempGO;
+        for (int i = 0; i < objects.Length; i++)
+        {
+            //Debug.Log("i: " + i);
+            int rnd = Random.Range(0, objects.Length);
+            tempGO = objects[rnd];
+            objects[rnd] = objects[i];
+            objects[i] = tempGO;
+        }
+        return objects;
     }
 
     public void StartConfigure(GameObject go)

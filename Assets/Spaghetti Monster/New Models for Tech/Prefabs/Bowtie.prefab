@@ -142,7 +142,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!114 &5066544550982411236
 MonoBehaviour:
@@ -2267,6 +2267,8 @@ GameObject:
   - component: {fileID: 6411429308906471764}
   - component: {fileID: 7646858531639711148}
   - component: {fileID: 8247380310516131374}
+  - component: {fileID: 6719157606064219537}
+  - component: {fileID: 2545097020620744911}
   m_Layer: 0
   m_Name: Bowtie
   m_TagString: Agent
@@ -2282,7 +2284,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6030927175624317934}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 235.1}
+  m_LocalPosition: {x: 5, y: 4.19, z: 0.239}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 664597291088660460}
@@ -2555,6 +2557,34 @@ MonoBehaviour:
   - {fileID: 3391411936718240778}
   Factory: {fileID: 0}
   _reachedTarget: 0
+--- !u!64 &6719157606064219537
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6030927175624317934}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
+--- !u!114 &2545097020620744911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6030927175624317934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa3668a0e76f8fb45b2eb5bf8792caa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objects:
+  - {fileID: 2342856748240419408}
 --- !u!1 &6373494965559292326
 GameObject:
   m_ObjectHideFlags: 0

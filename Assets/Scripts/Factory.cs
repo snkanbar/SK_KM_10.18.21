@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
 public class Factory : MonoBehaviour
 {
-    public GameObject Prefab;
+    //public GameObject Prefab;
+    public GameObject[] Prefabs;
+
     public string TargetTag;
     public int MakeLimit = 55; //maximum agents before destruction
     private int _makeCount = 0; //each time we make an agent, add to count
@@ -87,7 +89,8 @@ public class Factory : MonoBehaviour
             //Debug.Log("Make");
             _lastMake = 0; //reset time counter
             _makeCount++; //increase agent make count by one
-            GameObject go = Instantiate(Prefab, this.transform.position, Quaternion.identity);
+            GameObject prefab = Prefabs[Random.Range(0, Prefabs.Length)];
+            GameObject go = Instantiate(prefab, this.transform.position, Quaternion.identity);
             MobileUnit mu = go.GetComponent<MobileUnit>();
             mu.Target = Target;
         }
