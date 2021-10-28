@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 6970381995865353111}
   - component: {fileID: 7979336090464781338}
   - component: {fileID: 3043313015918418960}
+  - component: {fileID: 1851489596648326596}
   m_Layer: 0
   m_Name: Fusi2
   m_TagString: Agent
@@ -258,6 +259,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objects:
   - {fileID: 3521836154196038733}
+--- !u!114 &1851489596648326596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121788046691894006}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 681b5a8de09bd2f43b1053e51d90017e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ParentObjectCollider: {fileID: 6970381995865353111}
+  ChildObjectCollider: {fileID: 1048573387999066905}
 --- !u!1 &187274329873052437
 GameObject:
   m_ObjectHideFlags: 0

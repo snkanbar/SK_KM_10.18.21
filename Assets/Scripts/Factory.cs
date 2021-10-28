@@ -14,6 +14,7 @@ public class Factory : MonoBehaviour
     private GameObject Target;
     public GameObject StartButton;
     public GameObject DropButton;
+    // public Collider ObjectCollider;
 
     ///private Rigidbody rb;
 

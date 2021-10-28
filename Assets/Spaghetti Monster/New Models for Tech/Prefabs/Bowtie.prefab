@@ -2270,6 +2270,7 @@ GameObject:
   - component: {fileID: 6719157606064219537}
   - component: {fileID: 5621701178912906957}
   - component: {fileID: 2545097020620744911}
+  - component: {fileID: 3995611531328331835}
   m_Layer: 0
   m_Name: Bowtie
   m_TagString: Agent
@@ -2602,6 +2603,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objects:
   - {fileID: 2342856748240419408}
+--- !u!114 &3995611531328331835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6030927175624317934}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 681b5a8de09bd2f43b1053e51d90017e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ParentObjectCollider: {fileID: 6719157606064219537}
+  ChildObjectCollider: {fileID: 8632305768840646006}
 --- !u!1 &6373494965559292326
 GameObject:
   m_ObjectHideFlags: 0
