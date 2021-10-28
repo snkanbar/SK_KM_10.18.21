@@ -24,8 +24,8 @@ public class MobileUnit : MonoBehaviour
         foreach (GameObject pos in Positions)
         {
             float x = Random.Range(65, 75);
-            float y = Random.Range(35, 45);
-            float z = Random.Range(40, 50);
+            float y = Random.Range(19, 39);
+            float z = Random.Range(41, 51);
             pos.transform.position = new Vector3(x, y, z); //need to define these vqlues
             Configure.Add(pos, null);
         }

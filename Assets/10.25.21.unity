@@ -2396,12 +2396,12 @@ MonoBehaviour:
   Prefabs:
   - {fileID: 6987298816656246791, guid: 28ac80c811b2c104a9553318e021465f, type: 3}
   - {fileID: 6030927175624317934, guid: fde2199bb71dd8546ab2ccf6a25d3c2c, type: 3}
-  - {fileID: 125308947681806451, guid: bd24c74f88ceb86488149b918822054d, type: 3}
+  - {fileID: 121788046691894006, guid: b8a0e153c445843408605f872ab0fdfc, type: 3}
   TargetTag: Target
-  MakeLimit: 55
+  MakeLimit: 500
   StartButton: {fileID: 444754197}
   DropButton: {fileID: 1106362210}
-  MakeRate: 0.5
+  MakeRate: 0.05
   rend: {fileID: 1803898387}
 --- !u!65 &2139378279
 BoxCollider:

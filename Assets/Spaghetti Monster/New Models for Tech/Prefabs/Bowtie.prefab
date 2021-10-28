@@ -92,7 +92,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -5635484798206224817, guid: c7bc4606ed49d764b836dbff3f466d3e, type: 3}
+  - {fileID: 2100000, guid: 7135e19dc15b6f74d8adb4d8ad4329c2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2268,6 +2268,7 @@ GameObject:
   - component: {fileID: 7646858531639711148}
   - component: {fileID: 8247380310516131374}
   - component: {fileID: 6719157606064219537}
+  - component: {fileID: 5621701178912906957}
   - component: {fileID: 2545097020620744911}
   m_Layer: 0
   m_Name: Bowtie
@@ -2571,6 +2572,22 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!54 &5621701178912906957
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6030927175624317934}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!114 &2545097020620744911
 MonoBehaviour:
   m_ObjectHideFlags: 0
