@@ -71,6 +71,7 @@ public class Factory : MonoBehaviour
 
             if (Input.GetButtonDown("South"))
                 DropButton.SetActive(false);
+
             Destroy(gameObject);
 
             //rb.useGravity = true;
