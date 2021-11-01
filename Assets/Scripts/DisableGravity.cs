@@ -14,6 +14,8 @@ public class DisableGravity : MonoBehaviour
     // In Unity's inspector window, populate with scene objects that you want to have gravity enabled on
     public Rigidbody[] objects;
 
+    public Collider[] colliders;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -30,8 +32,14 @@ public class DisableGravity : MonoBehaviour
             {
                 objects[i].useGravity = true;
             }
-            //gameObject.active = false;
 
+            for (int i = 0; i < colliders.Length; i++)
+            {
+                colliders[i].isTrigger = false;
+            }
+
+            //gameObject.active = false;
+            //Debug.Break();
             //Pasta = GetComponent<NavMeshAgent>();
             //Pasta.SetDestination(Falldown.transform.position);
 
