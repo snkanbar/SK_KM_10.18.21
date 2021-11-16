@@ -70,6 +70,7 @@ public class Factory : MonoBehaviour
             DropButton.SetActive(true); //Text
 
             if (Input.GetButtonDown("South"))
+                //  Destroy(DropButton);
                 DropButton.SetActive(false);
 
             Destroy(gameObject);
