@@ -10,7 +10,11 @@ public class MobileUnit : MonoBehaviour
     public GameObject[] Positions;
     private NavMeshAgent Agent;
     public GameObject Factory; //Factory Prefab To Instantiate
+
+    // public GameObject[] Noodles;
     public Dictionary<GameObject, GameObject> Configure = new Dictionary<GameObject, GameObject>();
+
+    ///////////////////private Rigidbody Rigidbody;
 
     [HideInInspector]
     public bool _reachedTarget = false;
@@ -30,6 +34,10 @@ public class MobileUnit : MonoBehaviour
             Configure.Add(pos, null);
         }
 
+        //Agent.SetDestination(Target.transform.position);
+        //Positions = null;
+
+        //NavMesh.RemoveAllNavMeshData();
         //GameObject mesh = Positions[Random.Range(0, Positions.Length)];
     }
 
@@ -45,6 +53,7 @@ public class MobileUnit : MonoBehaviour
             objects[i] = tempGO;
         }
         return objects;
+        ///////////////////Rigidbody.constraints = RigidbodyConstraints.FreezeAll;
     }
 
     public void StartConfigure(GameObject go)

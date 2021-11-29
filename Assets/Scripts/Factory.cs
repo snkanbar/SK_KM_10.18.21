@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.AI;
+using System.Linq;
 
 public class Factory : MonoBehaviour
 {
@@ -11,9 +13,11 @@ public class Factory : MonoBehaviour
     public string TargetTag;
     public int MakeLimit = 55; //maximum agents before destruction
     private int _makeCount = 0; //each time we make an agent, add to count
+    public NavMeshSurface Agent;
     private GameObject Target;
     public GameObject StartButton;
     public GameObject DropButton;
+
     // public Collider ObjectCollider;
 
     ///private Rigidbody rb;
@@ -31,6 +35,9 @@ public class Factory : MonoBehaviour
     {
         StartButton.SetActive(true);
         DropButton.SetActive(false);
+
+        Debug.Log("Set Target Active!");
+        Target.SetActive(true);
 
         /*GameObject[] targets = GameObject.FindGameObjectsWithTag(TargetTag);
         Target = targets[Random.Range(0, targets.Length)];
@@ -56,6 +63,9 @@ public class Factory : MonoBehaviour
             Target = targets[Random.Range(0, targets.Length)];
             rend = GetComponent<Renderer>();
 
+            if (Input.GetButtonDown("South"))
+                Target = null; ---------------------------------
+
             ///rb.useGravity = false;
             ///rb = GetComponent<Rigidbody>();
         }
@@ -70,10 +80,39 @@ public class Factory : MonoBehaviour
             DropButton.SetActive(true); //Text
 
             if (Input.GetButtonDown("South"))
-                //  Destroy(DropButton);
+                //   NavMesh.RemoveAllNavMeshData();//
+                //Destroy(DropButton);//
                 DropButton.SetActive(false);
 
+            //   GetComponent<MobileUnit>().enabled = true;
+            //  GetComponent<CollisionDetection>().enabled = true;
+            //  GetComponent<NavMeshAgent>().enabled = true;
+
+            // GetComponent<CollisionDetection>().enabled = true;
+            // GetComponentInChildren<CollisionDetection>().enabled = true;
+
+            NavMesh.RemoveAllNavMeshData();
             Destroy(gameObject);
+
+            //Agent.ResetPath();
+
+            //GameObject.FindGameObjectsWithTag(AgentTag);
+            // NavMeshAgent.isStopped = true;
+
+            //NavMeshAgent.ResetPath();
+
+            // NavMeshAgent.isStopped = true;
+            // NavMeshAgent.ResetPath();
+
+            //Debug.DrawLine(this.transform.position, Target.transform.position, Color.black);
+            //Debug.DrawRay(this.transform.position, this.transform.forward, Color.red);
+
+            //Agent = this.GetComponent<NavMeshAgent>();
+
+            //Agent.SetDestination(Target.transform.position);
+
+            /////Debug.Log("Set Target Inactive!");
+            /////Target.SetActive(false);
 
             //rb.useGravity = true;
 
@@ -93,33 +132,49 @@ public class Factory : MonoBehaviour
             _lastMake = 0; //reset time counter
             _makeCount++; //increase agent make count by one
             GameObject prefab = Prefabs[Random.Range(0, Prefabs.Length)];
+
+            //GameObject go = null;
+
             GameObject go = Instantiate(prefab, this.transform.position, Quaternion.identity);
+
+            //GameObject go = Instantiate(prefab, this.transform.position, Quaternion.identity);
             MobileUnit mu = go.GetComponent<MobileUnit>();
             mu.Target = Target;
+
+            //Text textComponent = newobj.GetComponent<Text>(); //Not using for text
         }
 
-        //Text textComponent = newobj.GetComponent<Text>(); //Not using for text
+        {
+            //if (Input.GetButtonDown("South"))
+            //////////////  NavMesh.RemoveAllNavMeshData();
+
+            //NavMeshSurface.Stop();
+            //NavMeshSurface.ResetPath();
+
+            //Agent.ResetPath();
+            //Target = null;
+        }
+
+        /* public void EnableGravity()
+        {
+            rb.useGravity = true;
+        } */
+
+        // Go through each rigidbody in the array and enable gravity
+        //public void EnableGravity();
+
+        /*public void changecolorred()
+        {
+            rend.material.SetColor("_Color", Color.red);
+        }
+
+        public void changecolorblue()
+        {
+            rend.material.SetColor("_Color", Color.blue);
+        }
+
+        public void changecoloryellow()
+        {
+            rend.material.color = Random.ColorHSV();*/
     }
-
-    /* public void EnableGravity()
-    {
-        rb.useGravity = true;
-    } */
-
-    // Go through each rigidbody in the array and enable gravity
-    //public void EnableGravity();
-
-    /*public void changecolorred()
-    {
-        rend.material.SetColor("_Color", Color.red);
-    }
-
-    public void changecolorblue()
-    {
-        rend.material.SetColor("_Color", Color.blue);
-    }
-
-    public void changecoloryellow()
-    {
-        rend.material.color = Random.ColorHSV();*/
 }

@@ -9,6 +9,8 @@ TagManager:
   - Factory
   - Bowl
   - Table
+  - Target2
+  - Target3
   layers:
   - Default
   - TransparentFX
