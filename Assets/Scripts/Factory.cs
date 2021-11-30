@@ -27,6 +27,7 @@ public class Factory : MonoBehaviour
 
     //scripts
     public NavMeshAgent FusiNavMeshAgent;
+
     public MobileUnit FusiMobileUnit;
     public CollisionDetection FusiCollisionDetection;
 
@@ -41,7 +42,6 @@ public class Factory : MonoBehaviour
     //ADDED FROM DISABLE GRAVITY SCRIPT
     //public Rigidbody[] objects;
     //public Collider[] colliders;
-
 
     // Start is called before the first frame update
     private void Start()
@@ -69,12 +69,10 @@ public class Factory : MonoBehaviour
             GameObject[] targets = GameObject.FindGameObjectsWithTag(TargetTag);
             Target = targets[Random.Range(0, targets.Length)];
             rend = GetComponent<Renderer>();
-                       
         }
 
         //guard statement
         if (Target == null) { return; }
-
 
         //remove navmesh data
         if (Input.GetButtonDown("South"))
@@ -106,7 +104,7 @@ public class Factory : MonoBehaviour
             //{
             //    colliders[i].isTrigger = false;
             //}
-                      
+
             //DropButton.SetActive(false);
             //Destroy(Target);
         }
@@ -118,24 +116,22 @@ public class Factory : MonoBehaviour
         {
             //for (int i = 0; i < objects.Length; i++)
             {
-            //    objects[i].useGravity = true;
+                //    objects[i].useGravity = true;
             }
 
-           // for (int i = 0; i < colliders.Length; i++)
+            // for (int i = 0; i < colliders.Length; i++)
             {
-             //   colliders[i].isTrigger = false;
+                //   colliders[i].isTrigger = false;
             }
-                      
         }
 
         //destroy factory when limit reached
         if (_makeCount >= MakeLimit)
         {
             Debug.Log("Make Limit!");
-            DropButton.SetActive(true); //Text                       
+            DropButton.SetActive(true); //Text
         }
 
-        
         _lastMake += Time.deltaTime; //_lastMake = _lastMake + Time.deltaTime;
         if (_lastMake > MakeRate)
         {
@@ -143,10 +139,9 @@ public class Factory : MonoBehaviour
             _lastMake = 0; //reset time counter
             _makeCount++; //increase agent make count by one
             GameObject prefab = Prefabs[Random.Range(0, Prefabs.Length)];
-            GameObject go = Instantiate(prefab, this.transform.position, Quaternion.identity);                  
+            GameObject go = Instantiate(prefab, this.transform.position, Quaternion.identity);
             MobileUnit mu = go.GetComponent<MobileUnit>();
             mu.Target = Target;
-                        
         }
 
         {
@@ -159,6 +154,5 @@ public class Factory : MonoBehaviour
             //Agent.ResetPath();
             //Target = null;
         }
-               
     }
 }

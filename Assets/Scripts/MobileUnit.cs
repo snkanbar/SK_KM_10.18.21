@@ -65,9 +65,9 @@ public class MobileUnit : MonoBehaviour
             //Guard Statement
             if (Configure[key] != null) { continue; } //Go To The Next Loop Iteration
             Configure[key] = go;
-            go.GetComponentInParent<NavMeshAgent>().enabled = false;
-            go.GetComponentInParent<MobileUnit>().enabled = false;
-            go.GetComponent<CollisionDetection>().enabled = false;
+            //go.GetComponentInParent<NavMeshAgent>().enabled = false;
+            // go.GetComponentInParent<MobileUnit>().enabled = false;
+            // go.GetComponent<CollisionDetection>().enabled = false;
             break;
         }
     }
