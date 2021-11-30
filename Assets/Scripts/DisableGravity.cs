@@ -16,6 +16,8 @@ public class DisableGravity : MonoBehaviour
 
     public Collider[] colliders;
 
+    //public NavMeshSurface Agent;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -37,6 +39,8 @@ public class DisableGravity : MonoBehaviour
             {
                 colliders[i].isTrigger = false;
             }
+
+            //NavMesh.RemoveAllNavMeshData();
 
             //gameObject.active = false;
             //Debug.Break();
