@@ -17,6 +17,8 @@ public class Factory : MonoBehaviour
     private GameObject Target;
     public GameObject StartButton;
     public GameObject DropButton;
+    public GameObject RightJoystick;
+    //public GameObject Rotate;
 
     public float MakeRate = 2.0f;
     public Renderer rend;
@@ -26,18 +28,17 @@ public class Factory : MonoBehaviour
     public GameObject Plane;
 
     //scripts
-    public NavMeshAgent FusiNavMeshAgent;
+    //public NavMeshAgent FusiNavMeshAgent;
+    //public MobileUnit FusiMobileUnit;
+    //public CollisionDetection FusiCollisionDetection;
 
-    public MobileUnit FusiMobileUnit;
-    public CollisionDetection FusiCollisionDetection;
+    //public NavMeshAgent MacNavMeshAgent;
+    //public MobileUnit MacMobileUnit;
+    //public CollisionDetection MacCollisionDetection;
 
-    public NavMeshAgent MacNavMeshAgent;
-    public MobileUnit MacMobileUnit;
-    public CollisionDetection MacCollisionDetection;
-
-    public NavMeshAgent BowtieNavMeshAgent;
-    public MobileUnit BowtieMobileUnit;
-    public CollisionDetection BowtieCollisionDetection;
+    //public NavMeshAgent BowtieNavMeshAgent;
+    //public MobileUnit BowtieMobileUnit;
+    //public CollisionDetection BowtieCollisionDetection;
 
     //ADDED FROM DISABLE GRAVITY SCRIPT
     //public Rigidbody[] objects;
@@ -48,6 +49,8 @@ public class Factory : MonoBehaviour
     {
         StartButton.SetActive(true);
         DropButton.SetActive(false);
+        RightJoystick.SetActive(false);
+        //Rotate.SetActive(false);
 
         Debug.Log("Set Target Active!");
         Target.SetActive(true);
@@ -74,12 +77,21 @@ public class Factory : MonoBehaviour
         //guard statement
         if (Target == null) { return; }
 
+        if (_makeCount >= MakeLimit)
+        {
+            Debug.Log("Make Limit!");
+            DropButton.SetActive(true); //Text
+        }
+
+
         //remove navmesh data
         if (Input.GetButtonDown("South"))
         {
             Destroy(Target);
             NavMesh.RemoveAllNavMeshData();
-
+            DropButton.SetActive(false);
+            RightJoystick.SetActive(true);
+            //Rotate.SetActive(true);
             //Plane = GameObject.Find("Plane");
             Plane.SetActive(true);
 
@@ -126,11 +138,11 @@ public class Factory : MonoBehaviour
         }
 
         //destroy factory when limit reached
-        if (_makeCount >= MakeLimit)
-        {
-            Debug.Log("Make Limit!");
-            DropButton.SetActive(true); //Text
-        }
+        //if (_makeCount >= MakeLimit)
+        //{
+        //    Debug.Log("Make Limit!");
+        //    DropButton.SetActive(true); //Text
+        //}
 
         _lastMake += Time.deltaTime; //_lastMake = _lastMake + Time.deltaTime;
         if (_lastMake > MakeRate)

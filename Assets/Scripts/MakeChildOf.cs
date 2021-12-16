@@ -10,11 +10,13 @@ public class MakeChildOf : MonoBehaviour
     public GameObject NewParent;
 
     public Collider Collider;
-    public Rigidbody Rigidbody;
+    private Rigidbody Rigidbody;
+    //public Rigidbody Rigidbody;
 
     public void Start()
     {
         Collider = GetComponent<Collider>();
+        Rigidbody = GetComponent<Rigidbody>();
     }
 
     //public void Update()
@@ -27,8 +29,12 @@ public class MakeChildOf : MonoBehaviour
     {
         other.transform.parent.transform.parent = NewParent.transform;
 
-        other.transform.parent.gameObject.GetComponent<Rigidbody>();
-        this.Rigidbody.useGravity = false;
+        if (other.attachedRigidbody)
+            other.attachedRigidbody.useGravity = false;
+
+
+        //other.transform.parent.gameObject.GetComponent<Rigidbody>();
+        //this.Rigidbody.useGravity = false;
 
         // OriginalParent1.transform.parent = NewParent.transform;
         // OriginalParent2.transform.parent = NewParent.transform;

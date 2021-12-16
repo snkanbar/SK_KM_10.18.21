@@ -34,7 +34,9 @@ public class Cursor2 : MonoBehaviour
             {
                 float yy = _selectedFactory.transform.localScale.y / 2.0f;
                 _selectedFactory.transform.position = hit.point + new Vector3(0, yy, 0);
-                if (Input.GetButtonDown("East"))
+                //if (Input.GetButtonDown("East"))
+                if (Input.GetKeyDown("A"))
+
                 {
                     Factory factory = _selectedFactory.GetComponent<Factory>();
                     //GameObject gameObject = _selectedFactory.GetComponent<GameObject>();
@@ -48,7 +50,8 @@ public class Cursor2 : MonoBehaviour
             if (Physics.Raycast(ray.origin, ray.direction, out hit, Mathf.Infinity, SelectMask))
             {
                 Debug.Log("Factory");
-                if (Input.GetButtonDown("East"))
+                //if (Input.GetButtonDown("East"))
+                if (Input.GetKeyDown("A"))
                 {
                     _selectedFactory = hit.transform.gameObject;
                     Factory factory = _selectedFactory.GetComponent<Factory>();
